@@ -11,7 +11,10 @@ import com.warchaser.annotationdev.R;
 import com.warchaser.annotationdev.module.click.ButterKnifeTest;
 import com.warchaser.annotationdev.module.click.OnClick;
 import com.warchaser.annotationdev.module.click.ViewInject;
+import com.warchaser.compiler.annotationprocessor.TrackManager;
+import com.warchaser.compiler.annotationprocessor.annotation.TrackName;
 
+@TrackName
 public class ClickTestActivity extends BaseActivity{
 
     @ViewInject(R.id.mBtn1)
@@ -27,7 +30,7 @@ public class ClickTestActivity extends BaseActivity{
 
         ButterKnifeTest.inject(this);
 
-
+        TrackManager.getInstance().getTrackNameByClass("ClickTestActivity");
     }
 
     @Override
