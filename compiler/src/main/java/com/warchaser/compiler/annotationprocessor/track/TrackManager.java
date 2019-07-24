@@ -1,4 +1,4 @@
-package com.warchaser.compiler.annotationprocessor;
+package com.warchaser.compiler.annotationprocessor.track;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -19,7 +19,7 @@ public class TrackManager implements TrackInfoProvider{
 
     private TrackManager(){
         trackNameMap = new HashMap<>();
-        final String classFullName = "com.warchaser.compiler.annotationprocessor.TrackManager$Helper";
+        final String classFullName = "com.warchaser.compiler.annotationprocessor.track.TrackManager$Helper";
         try {
             final Class<?> clazz = Class.forName(classFullName);
             IData data = (IData)clazz.newInstance();

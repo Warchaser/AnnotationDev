@@ -11,8 +11,8 @@ import com.warchaser.annotationdev.R;
 import com.warchaser.annotationdev.module.click.ButterKnifeTest;
 import com.warchaser.annotationdev.module.click.OnClick;
 import com.warchaser.annotationdev.module.click.ViewInject;
-import com.warchaser.compiler.annotationprocessor.TrackManager;
-import com.warchaser.compiler.annotationprocessor.annotation.TrackName;
+import com.warchaser.compiler.annotationprocessor.track.TrackManager;
+import com.warchaser.compiler.annotationprocessor.track.annotation.TrackName;
 
 @TrackName(name = "ClickTestActivity")
 public class ClickTestActivity extends BaseActivity{

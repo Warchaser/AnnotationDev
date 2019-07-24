@@ -1,4 +1,4 @@
-package com.warchaser.compiler.annotationprocessor.annotation;
+package com.warchaser.compiler.annotationprocessor.track.annotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

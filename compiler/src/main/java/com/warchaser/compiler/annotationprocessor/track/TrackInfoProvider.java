@@ -1,4 +1,4 @@
-package com.warchaser.compiler.annotationprocessor;
+package com.warchaser.compiler.annotationprocessor.track;
 
 public interface TrackInfoProvider {
 
