@@ -14,7 +14,7 @@ import com.warchaser.annotationdev.module.click.ViewInject;
 import com.warchaser.compiler.annotationprocessor.TrackManager;
 import com.warchaser.compiler.annotationprocessor.annotation.TrackName;
 
-@TrackName
+@TrackName(name = "ClickTestActivity")
 public class ClickTestActivity extends BaseActivity{
 
     @ViewInject(R.id.mBtn1)

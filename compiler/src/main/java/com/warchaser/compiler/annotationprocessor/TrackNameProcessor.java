@@ -16,7 +16,6 @@ import javax.annotation.processing.Messager;
 import javax.annotation.processing.ProcessingEnvironment;
 import javax.annotation.processing.Processor;
 import javax.annotation.processing.RoundEnvironment;
-import javax.annotation.processing.SupportedAnnotationTypes;
 import javax.annotation.processing.SupportedSourceVersion;
 import javax.lang.model.SourceVersion;
 import javax.lang.model.element.Element;
@@ -50,43 +49,32 @@ public class TrackNameProcessor extends AbstractProcessor {
         return types;
     }
 
-    //生成Java源文件
     private void generateJavaClassFile(Set<? extends TypeElement> annotations, RoundEnvironment roundEnvironment){
         //set of track
         Map<String, String> trackMap = new HashMap<>();
         //print on gradle console
         Messager messager = processingEnv.getMessager();
 
-        //遍历annotation，获取annotation类型@SupportAnnotationTypes
         for(TypeElement te : annotations){
-            //获取所有被Annotation标注的元素
             for(Element e : roundEnvironment.getElementsAnnotatedWith(te)){
                 final Name simpleName =  e.getSimpleName();
                 final String simpleNameStr = simpleName.toString();
-                //打印
                 messager.printMessage(Diagnostic.Kind.NOTE, "Printing: " + e.toString());
                 messager.printMessage(Diagnostic.Kind.NOTE, "Printing: " + simpleName);
                 messager.printMessage(Diagnostic.Kind.NOTE, "Printing: " + e.getEnclosingElement().toString());
 
-                //获取注解
                 TrackName annotation = e.getAnnotation(TrackName.class);
-                //获取名称
                 String name = "".equals(annotation.name()) ? simpleNameStr : annotation.name();
-                //保存映射信息
                 trackMap.put(simpleNameStr, name);
                 messager.printMessage(Diagnostic.Kind.NOTE, "relatives: " + simpleNameStr + "-" + name);
             }
         }
 
         try {
-            //生成的包名
             final String generatedPackageName = "com.warchaser.compiler.annotationprocessor";
-            //生成的类名
             final String generatedClassName = "TrackManager$Helper";
 
-            //创建Java文件
             final JavaFileObject f = processingEnv.getFiler().createSourceFile(generatedClassName);
-            //在控制台输出文件路径
             messager.printMessage(Diagnostic.Kind.NOTE, "Printing: " + f.toUri());
             final Writer w = f.openWriter();
 
