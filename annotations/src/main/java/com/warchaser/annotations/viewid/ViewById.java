@@ -1,4 +1,5 @@
-package com.warchaser.compiler.annotationprocessor.viewid.annotation;
+package com.warchaser.annotations.viewid;
+
 
 import androidx.annotation.IdRes;
 

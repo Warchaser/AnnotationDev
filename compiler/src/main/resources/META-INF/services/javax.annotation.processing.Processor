@@ -1,1 +1,2 @@
 com.warchaser.compiler.annotationprocessor.track.TrackNameProcessor
+com.warchaser.compiler.annotationprocessor.viewid.ViewIdProcessor

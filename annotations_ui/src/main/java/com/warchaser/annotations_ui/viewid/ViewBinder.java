@@ -1,4 +1,4 @@
-package com.warchaser.annotations_ui;
+package com.warchaser.annotations_ui.viewid;
 
 import java.util.Map;
 import java.util.TreeMap;

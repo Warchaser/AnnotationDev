@@ -1,6 +1,7 @@
 package com.warchaser.compiler.annotationprocessor.viewid;
 
-import com.warchaser.compiler.annotationprocessor.viewid.annotation.ViewById;
+
+import com.warchaser.annotations.viewid.ViewById;
 
 import javax.lang.model.element.Element;
 import javax.lang.model.element.ElementKind;

@@ -25,7 +25,7 @@ import javax.tools.JavaFileObject;
 import com.warchaser.compiler.annotationprocessor.track.annotation.TrackName;
 
 @AutoService(Processor.class)
-@SupportedSourceVersion(SourceVersion.RELEASE_7)
+@SupportedSourceVersion(SourceVersion.RELEASE_8)
 public class TrackNameProcessor extends AbstractProcessor {
 
     @Override

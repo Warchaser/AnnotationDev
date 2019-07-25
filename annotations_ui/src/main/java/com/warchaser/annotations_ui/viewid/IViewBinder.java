@@ -1,4 +1,4 @@
-package com.warchaser.annotations_ui;
+package com.warchaser.annotations_ui.viewid;
 
 public interface IViewBinder<T> {
 
