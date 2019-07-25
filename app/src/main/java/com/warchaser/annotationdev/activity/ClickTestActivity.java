@@ -8,7 +8,7 @@ import androidx.annotation.Nullable;
 
 import com.warchaser.annotationdev.R;
 import com.warchaser.annotations.viewid.ViewById;
-import com.warchaser.annotations_ui.viewid.ViewBinder;
+import com.warchaser.annotations_ui.ViewBinder;
 
 public class ClickTestActivity extends BaseActivity{
 

@@ -1,6 +1,7 @@
 package com.warchaser.compiler.annotationprocessor.viewid;
 
 
+import com.warchaser.annotations.bindclick.BindClick;
 import com.warchaser.annotations.viewid.ViewById;
 
 import javax.lang.model.element.Element;
@@ -25,7 +26,13 @@ public class ViewField {
 
         mResId = annotation.value();
         mFieldName = element.getSimpleName();
+
+        if(mResId < 0){
+            throw new IllegalArgumentException(String.format("value() in %s for field %s is not valid!", BindClick.class.getSimpleName(), mFieldName));
+        }
+
         mFieldType = element.asType();
+
     }
 
     public TypeMirror getFieldType(){
