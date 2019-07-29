@@ -60,7 +60,7 @@ public class ClickAnnotationClass {
                     .returns(void.class)
                     .addStatement("host.$L()", name);
 
-            TypeSpec onClick = TypeSpec.annotationBuilder("")
+            TypeSpec onClick = TypeSpec.anonymousClassBuilder("")
                     .superclass(ClassName.bestGuess(listenerClass.type()))
                     .addMethod(onClickMethod.build())
                     .build();

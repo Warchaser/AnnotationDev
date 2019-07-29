@@ -10,7 +10,7 @@ import java.lang.annotation.Target;
 @ListenerClass(
         targetType = "android.view.View",
         setter = "setOnClickListener",
-        type = "",
+        type = "com.warchaser.annotations_ui.bindclick.DebouncingOnClickListener",
         method = @ListenerMethod(
                 name = "doClick",
                 parameters = "android.view.View"
