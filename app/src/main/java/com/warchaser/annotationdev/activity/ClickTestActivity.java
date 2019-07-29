@@ -1,6 +1,7 @@
 package com.warchaser.annotationdev.activity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -32,9 +33,11 @@ public class ClickTestActivity extends BaseActivity{
         super.onDestroy();
     }
 
-    @BindClick(R.id.mBtn1)
-    void click(){
+    @BindClick({R.id.mBtn1, R.id.mTv2})
+    void click(View view){
+        switch (view.getId()){
 
+        }
     }
 
 }

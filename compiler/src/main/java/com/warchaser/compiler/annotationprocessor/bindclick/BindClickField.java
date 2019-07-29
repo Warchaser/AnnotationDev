@@ -15,7 +15,7 @@ public class BindClickField {
 
     private Name mFieldName;
 
-    private int mResId;
+    private int[] mResId;
 
     private ListenerClass mListenerClass;
 
@@ -42,7 +42,7 @@ public class BindClickField {
         return mListenerClass;
     }
 
-    public int getResId(){
+    public int[] getResId(){
         return mResId;
     }
 

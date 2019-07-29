@@ -17,5 +17,5 @@ import java.lang.annotation.Target;
         )
 )
 public @interface BindClick {
-    int value();
+    int[] value() default {};
 }

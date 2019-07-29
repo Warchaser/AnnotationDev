@@ -9,7 +9,6 @@ import com.squareup.javapoet.TypeSpec;
 import com.warchaser.annotations.bindclick.ListenerClass;
 import com.warchaser.annotations.bindclick.ListenerMethod;
 
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 
 import javax.lang.model.element.Modifier;
@@ -58,14 +57,17 @@ public class ClickAnnotationClass {
                     .addModifiers(Modifier.PUBLIC)
                     .addParameter(VIEW, "view")
                     .returns(void.class)
-                    .addStatement("host.$L()", name);
+                    .addStatement("host.$L($L)", name, "view");
 
             TypeSpec onClick = TypeSpec.anonymousClassBuilder("")
                     .superclass(ClassName.bestGuess(listenerClass.type()))
                     .addMethod(onClickMethod.build())
                     .build();
 
-            bindClickMethod.addStatement("host.findViewById($L).$L($L)", field.getResId(), listenerClass.setter(), onClick);
+            for(int resId : field.getResId()){
+                bindClickMethod.addStatement("host.findViewById($L).$L($L)", resId, listenerClass.setter(), onClick);
+            }
+
         }
 
         MethodSpec.Builder unBindViewMethod = MethodSpec.methodBuilder("unBindClick")
@@ -74,7 +76,11 @@ public class ClickAnnotationClass {
                 .addAnnotation(Override.class);
 
         for(BindClickField field : mFields){
-            unBindViewMethod.addStatement("host.findViewById($L).setOnClickListener(null)", field.getResId());
+
+            for(int resId : field.getResId()){
+                unBindViewMethod.addStatement("host.findViewById($L).setOnClickListener(null)", resId);
+            }
+
         }
 
         TypeSpec injectClass = TypeSpec.classBuilder(mTypeElement.getSimpleName() + "$$ClickBinder")
