@@ -3,7 +3,8 @@ apply plugin: 'java-library'
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'androidx.annotation:annotation:1.1.0'
+    compileOnly 'com.google.android:android:4.1.1.4'
 }
 
-sourceCompatibility = "8"
-targetCompatibility = "8"
+sourceCompatibility = "1.8"
+targetCompatibility = "1.8"

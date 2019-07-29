@@ -1,9 +1,13 @@
 package com.warchaser.annotations.bindclick;
 
+import androidx.annotation.IdRes;
+
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
+
+import android.view.View;
 
 @Retention(RetentionPolicy.CLASS)
 @Target(ElementType.METHOD)
@@ -17,5 +21,5 @@ import java.lang.annotation.Target;
         )
 )
 public @interface BindClick {
-    int[] value() default {};
+    @IdRes int[] value() default {View.NO_ID};
 }
